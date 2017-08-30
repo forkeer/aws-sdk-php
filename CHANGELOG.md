@@ -1,5 +1,116 @@
 # CHANGELOG
 
+## 3.35.1 - 2017-08-29
+
+* `Aws\ConfigService` - Increased the internal size limit of resourceId
+* `Aws\EC2` - Provides capability to add secondary CIDR blocks to a VPC.
+
+## 3.35.0 - 2017-08-25
+
+* `Aws\` - Update CloudHSM smoke tests to CloudHSMV2
+* `Aws\CloudFormation` - Rollback triggers enable you to have AWS CloudFormation monitor the state of your application during stack creation and updating, and to roll back that operation if the application breaches the threshold of any of the alarms you've specified.
+* `Aws\GameLift` - Update spelling of MatchmakingTicket status values for internal consistency.
+* `Aws\RDS` - Option group options now contain additional properties that identify requirements for certain options. Check these properties to determine if your DB instance must be in a VPC or have auto minor upgrade turned on before you can use an option. Check to see if you can downgrade the version of an option after you have installed it.
+
+## 3.34.2 - 2017-08-24
+
+* `Aws\Rekognition` - Update the enum value of LandmarkType and GenderType to be consistent with service response
+
+## 3.34.1 - 2017-08-23
+
+* `Aws\AppStream` - Documentation updates for appstream
+
+## 3.34.0 - 2017-08-22
+
+* `Aws\` - Fixes an issue where exceptions weren't being fully loaded when using a `SaveAs` parameter set to a file path on Guzzle v5.
+* `Aws\` - Update Composer to add dependencies on `simplexml`, `pcre`, `spl` and `json`. This change will cause Composer updates to fail if you do not have these PHP extensions installed.
+* `Aws\SSM` - Changes to associations in Systems Manager State Manager can now be recorded. Previously, when you edited associations, you could not go back and review older association settings. Now, associations are versioned, and can be named using human-readable strings, allowing you to see a trail of association changes. You can also perform rate-based scheduling, which allows you to schedule associations more granularly.
+
+## 3.33.4 - 2017-08-21
+
+* `Aws\Firehose` - This change will allow customers to attach a Firehose delivery stream to an existing Kinesis stream directly. You no longer need a forwarder to move data from a Kinesis stream to a Firehose delivery stream. You can now run your streaming applications on your Kinesis stream and easily attach a Firehose delivery stream to it for data delivery to S3, Redshift, or Elasticsearch concurrently.
+* `Aws\Route53` - Amazon Route 53 now supports CAA resource record type. A CAA record controls which certificate authorities are allowed to issue certificates for the domain or subdomain.
+
+## 3.33.3 - 2017-08-18
+
+* `Aws\CodeStar` - Launch AWS CodeStar in the US West (N. California) and EU (London) regions.
+
+## 3.33.2 - 2017-08-16
+
+* `Aws\` - Fixes a bug in `ClientResolver` that would provide incorrect information on required parameters set to `null` when resolving a client.
+* `Aws\GameLift` - The Matchmaking Grouping Service is a new feature that groups player match requests for a given game together into game sessions based on developer configured rules.
+
+## 3.33.1 - 2017-08-15
+
+* `Aws\EC2` - Fixed bug in EC2 clients preventing HostReservation from being set
+
+## 3.33.0 - 2017-08-14
+
+* `Aws\Batch` - This release enhances the DescribeJobs API to include the CloudWatch logStreamName attribute in ContainerDetail and ContainerDetailAttempt
+* `Aws\CloudHSMV2` - CloudHSM provides hardware security modules for protecting sensitive data and cryptographic keys within an EC2 VPC, and enable the customer to maintain control over key access and use. This is a second-generation of the service that will improve security, lower cost and provide better customer usability.
+* `Aws\EFS` - Customers can create encrypted EFS file systems and specify a KMS master key to encrypt it with.
+* `Aws\Glue` - AWS Glue is a fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics. You can create and run an ETL job with a few clicks in the AWS Management Console. You simply point AWS Glue to your data stored on AWS, and AWS Glue discovers your data and stores the associated metadata (e.g. table definition and schema) in the AWS Glue Data Catalog. Once cataloged, your data is immediately searchable, queryable, and available for ETL. AWS Glue generates the code to execute your data transformations and data loading processes. AWS Glue generates Python code that is entirely customizable, reusable, and portable. Once your ETL job is ready, you can schedule it to run on AWS Glue's fully managed, scale-out Spark environment. AWS Glue provides a flexible scheduler with dependency resolution, job monitoring, and alerting. AWS Glue is serverless, so there is no infrastructure to buy, set up, or manage. It automatically provisions the environment needed to complete the job, and customers pay only for the compute resources consumed while running ETL jobs. With AWS Glue, data can be available for analytics in minutes.
+* `Aws\MigrationHub` - AWS Migration Hub provides a single location to track migrations across multiple AWS and partner solutions. Using Migration Hub allows you to choose the AWS and partner migration tools that best fit your needs, while providing visibility into the status of your entire migration portfolio. Migration Hub also provides key metrics and progress for individual applications, regardless of which tools are being used to migrate them. For example, you might use AWS Database Migration Service, AWS Server Migration Service, and partner migration tools to migrate an application comprised of a database, virtualized web servers, and a bare metal server. Using Migration Hub will provide you with a single screen that shows the migration progress of all the resources in the application. This allows you to quickly get progress updates across all of your migrations, easily identify and troubleshoot any issues, and reduce the overall time and effort spent on your migration projects. Migration Hub is available to all AWS customers at no additional charge. You only pay for the cost of the migration tools you use, and any resources being consumed on AWS.
+* `Aws\SSM` - Systems Manager Maintenance Windows include the following changes or enhancements: New task options using Systems Manager Automation, AWS Lambda, and AWS Step Functions; enhanced ability to edit the targets of a Maintenance Window, including specifying a target name and description, and ability to edit the owner field; enhanced ability to edits tasks; enhanced support for Run Command parameters; and you can now use a --safe flag when attempting to deregister a target. If this flag is enabled when you attempt to deregister a target, the system returns an error if the target is referenced by any task. Also, Systems Manager now includes Configuration Compliance to scan your fleet of managed instances for patch compliance and configuration inconsistencies. You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren't compliant.
+* `Aws\StorageGateway` - Add optional field ForceDelete to DeleteFileShare api.
+
+## 3.32.7 - 2017-08-11
+
+* `Aws\CodeDeploy` - Adds support for specifying Application Load Balancers in deployment groups, for both in-place and blue/green deployments.
+* `Aws\CognitoIdentityProvider` - We have added support for features for Amazon Cognito User Pools that enable application developers to easily add and customize a sign-up and sign-in user experience, use OAuth 2.0, and integrate with Facebook, Google, Login with Amazon, and SAML-based identity providers.
+* `Aws\EC2` - Provides customers an opportunity to recover an EIP that was released
+
+## 3.32.6 - 2017-08-10
+
+* `Aws\CloudDirectory` - Enable BatchDetachPolicy
+* `Aws\CodeBuild` - Supporting Bitbucket as source type in AWS CodeBuild.
+
+## 3.32.5 - 2017-08-09
+
+* `Aws\RDS` - Documentation updates for RDS.
+
+## 3.32.4 - 2017-08-08
+
+* `Aws\ElasticBeanstalk` - Add support for paginating the result of DescribeEnvironments. Include the ARN of described environments in DescribeEnvironments output.
+* `Aws\Signature` - Fixed edgecase in expiration duration check on signature when seconds roll between implicit startime and relative end time.
+
+## 3.32.3 - 2017-08-01
+
+* `Aws\CodeDeploy` - AWS CodeDeploy now supports the use of multiple tag groups in a single deployment group (an intersection of tags) to identify the instances for a deployment. When you create or update a deployment group, use the new ec2TagSet and onPremisesTagSet structures to specify up to three groups of tags. Only instances that are identified by at least one tag in each of the tag groups are included in the deployment group.
+* `Aws\ConfigService` - Added new API, GetDiscoveredResourceCounts, which returns the resource types, the number of each resource type, and the total number of resources that AWS Config is recording in the given region for your AWS account.
+* `Aws\EC2` - Ec2 SpotInstanceRequestFulfilled waiter update
+* `Aws\ElasticLoadBalancingv2` - Add TargetInService and TargetDeregistered waiters 
+* `Aws\Pinpoint` - This release of the Pinpoint SDK enables App management - create, delete, update operations, Raw Content delivery for APNs and GCM campaign messages and From Address override.
+* `Aws\SES` - This update adds information about publishing email open and click events. This update also adds information about publishing email events to Amazon Simple Notification Service (Amazon SNS).
+
+## 3.32.2 - 2017-07-31
+
+* `Aws\CodeStar` -  AWS CodeStar is now available in the following regions: Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt)
+* `Aws\Inspector` - Inspector's StopAssessmentRun API has been updated with a new input option - stopAction. This request parameter can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION (the default value, and the previous behavior) stops the AWS agent data collection and begins the results evaluation for findings generation based on the data collected so far. SKIP_EVALUATION cancels the assessment run immediately, after which no findings are generated.
+* `Aws\SSM` - Adds a SendAutomationSignal API to SSM Service. This API is used to send a signal to an automation execution to change the current behavior or status of the execution.
+
+## 3.32.1 - 2017-07-27
+
+* `Aws\EC2` - The CreateDefaultVPC API enables you to create a new default VPC . You no longer need to contact AWS support, if your default VPC has been deleted.
+* `Aws\KinesisAnalytics` - Added additional exception types and clarified documentation.
+
+## 3.32.0 - 2017-07-26
+
+* `Aws\` - Support for changes regarding PHP 7.2 releases.
+* `Aws\CloudWatch` - This release adds high resolution features to CloudWatch, with support for Custom Metrics down to 1 second and Alarms down to 10 seconds.
+* `Aws\DynamoDB` - Corrected a typo.
+* `Aws\EC2` - Amazon EC2 Elastic GPUs allow you to easily attach low-cost graphics acceleration to current generation EC2 instances. With Amazon EC2 Elastic GPUs, you can configure the right amount of graphics acceleration to your particular workload without being constrained by fixed hardware configurations and limited GPU selection.
+
+## 3.31.10 - 2017-07-25
+
+* `Aws\CloudDirectory` - Cloud Directory adds support for additional batch operations.
+* `Aws\CloudFormation` - AWS CloudFormation StackSets enables you to manage stacks across multiple accounts and regions.
+
+## 3.31.9 - 2017-07-24
+
+* `Aws\AppStream` - Amazon AppStream 2.0 image builders and fleets can now access applications and network resources that rely on Microsoft Active Directory (AD) for authentication and permissions. This new feature allows you to join your streaming instances to your AD, so you can use your existing AD user management tools. 
+* `Aws\EC2` - Spot Fleet tagging capability allows customers to automatically tag instances launched by Spot Fleet. You can use this feature to label or distinguish instances created by distinct Spot Fleets. Tagging your EC2 instances also enables you to see instance cost allocation by tag in your AWS bill.
+
 ## 3.31.8 - 2017-07-20
 
 * `Aws\EMR` - Amazon EMR now includes the ability to use a custom Amazon Linux AMI and adjustable root volume size when launching a cluster.
