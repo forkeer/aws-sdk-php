@@ -2055,6 +2055,24 @@
       },
       "input":{"shape":"UnmonitorInstancesRequest"},
       "output":{"shape":"UnmonitorInstancesResult"}
+    },
+    "UpdateSecurityGroupRuleDescriptionsEgress":{
+      "name":"UpdateSecurityGroupRuleDescriptionsEgress",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateSecurityGroupRuleDescriptionsEgressRequest"},
+      "output":{"shape":"UpdateSecurityGroupRuleDescriptionsEgressResult"}
+    },
+    "UpdateSecurityGroupRuleDescriptionsIngress":{
+      "name":"UpdateSecurityGroupRuleDescriptionsIngress",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateSecurityGroupRuleDescriptionsIngressRequest"},
+      "output":{"shape":"UpdateSecurityGroupRuleDescriptionsIngressResult"}
     }
   },
   "shapes":{
@@ -8215,7 +8233,10 @@
     },
     "HostOfferingSet":{
       "type":"list",
-      "member":{"shape":"HostOffering"}
+      "member":{
+        "shape":"HostOffering",
+        "locationName":"item"
+      }
     },
     "HostProperties":{
       "type":"structure",
@@ -9432,6 +9453,13 @@
         "locationName":"InstanceId"
       }
     },
+    "InstanceInterruptionBehavior":{
+      "type":"string",
+      "enum":[
+        "stop",
+        "terminate"
+      ]
+    },
     "InstanceIpv6Address":{
       "type":"structure",
       "members":{
@@ -9877,6 +9905,7 @@
         "r4.16xlarge",
         "x1.16xlarge",
         "x1.32xlarge",
+        "x1e.32xlarge",
         "i2.xlarge",
         "i2.2xlarge",
         "i2.4xlarge",
@@ -10022,6 +10051,10 @@
         "CidrIp":{
           "shape":"String",
           "locationName":"cidrIp"
+        },
+        "Description":{
+          "shape":"String",
+          "locationName":"description"
         }
       }
     },
@@ -10069,6 +10102,10 @@
         "CidrIpv6":{
           "shape":"String",
           "locationName":"cidrIpv6"
+        },
+        "Description":{
+          "shape":"String",
+          "locationName":"description"
         }
       }
     },
@@ -10788,6 +10825,10 @@
         "VpcId":{
           "shape":"String",
           "locationName":"vpcId"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "locationName":"tagSet"
         }
       }
     },
@@ -11465,6 +11506,10 @@
     "PrefixListId":{
       "type":"structure",
       "members":{
+        "Description":{
+          "shape":"String",
+          "locationName":"description"
+        },
         "PrefixListId":{
           "shape":"String",
           "locationName":"prefixListId"
@@ -12364,7 +12409,8 @@
         "ValidUntil":{
           "shape":"DateTime",
           "locationName":"validUntil"
-        }
+        },
+        "InstanceInterruptionBehavior":{"shape":"InstanceInterruptionBehavior"}
       }
     },
     "RequestSpotInstancesResult":{
@@ -14203,6 +14249,10 @@
         "ReplaceUnhealthyInstances":{
           "shape":"Boolean",
           "locationName":"replaceUnhealthyInstances"
+        },
+        "InstanceInterruptionBehavior":{
+          "shape":"InstanceInterruptionBehavior",
+          "locationName":"instanceInterruptionBehavior"
         }
       }
     },
@@ -14307,6 +14357,10 @@
         "ValidUntil":{
           "shape":"DateTime",
           "locationName":"validUntil"
+        },
+        "InstanceInterruptionBehavior":{
+          "shape":"InstanceInterruptionBehavior",
+          "locationName":"instanceInterruptionBehavior"
         }
       }
     },
@@ -15009,6 +15063,44 @@
         "locationName":"item"
       }
     },
+    "UpdateSecurityGroupRuleDescriptionsEgressRequest":{
+      "type":"structure",
+      "required":["IpPermissions"],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "GroupId":{"shape":"String"},
+        "GroupName":{"shape":"String"},
+        "IpPermissions":{"shape":"IpPermissionList"}
+      }
+    },
+    "UpdateSecurityGroupRuleDescriptionsEgressResult":{
+      "type":"structure",
+      "members":{
+        "Return":{
+          "shape":"Boolean",
+          "locationName":"return"
+        }
+      }
+    },
+    "UpdateSecurityGroupRuleDescriptionsIngressRequest":{
+      "type":"structure",
+      "required":["IpPermissions"],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "GroupId":{"shape":"String"},
+        "GroupName":{"shape":"String"},
+        "IpPermissions":{"shape":"IpPermissionList"}
+      }
+    },
+    "UpdateSecurityGroupRuleDescriptionsIngressResult":{
+      "type":"structure",
+      "members":{
+        "Return":{
+          "shape":"Boolean",
+          "locationName":"return"
+        }
+      }
+    },
     "UserBucket":{
       "type":"structure",
       "members":{
@@ -15048,6 +15140,10 @@
     "UserIdGroupPair":{
       "type":"structure",
       "members":{
+        "Description":{
+          "shape":"String",
+          "locationName":"description"
+        },
         "GroupId":{
           "shape":"String",
           "locationName":"groupId"
